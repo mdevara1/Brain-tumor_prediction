@@ -23,16 +23,16 @@ num_classes = len(classes)
 # Global variables
 current_epoch = 0
 total_epochs = 30
-training_state = 0  # 0: Not started, 1: Preprocessing, 2: Training, 3: Uploading images, 4: Completed
+training_state = 0  
 model = None
 
 class CustomTrainingCallback(tf.keras.callbacks.Callback):
     def on_epoch_end(self, epoch, logs=None):
         global current_epoch, training_state
         current_epoch = epoch + 1
-        if current_epoch == 5:
+        if current_epoch == 2:
             training_state = 1
-            print("Epoch 5 reached. State updated to '1' (Ready for image uploads and prediction).")
+            print("Epoch 2 reached. State updated to '1' (Ready for image uploads and prediction).")
         
         print(f"Epoch {current_epoch}/{total_epochs} completed")
 
